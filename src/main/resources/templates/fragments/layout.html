@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>NBP Explore</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/webjars/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="css/jumbotron-narrow.css"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header clearfix">
+        <div class="row">
+
+            <form id="downloadForm" class="download-form alert alert-success" action="/download" method="post"
+                  th:object="${indexForm}">
+                <button id="downloadBtn" type="submit" class="btn btn-primary">Download exchange rates</button>
+            </form>
+            <form class="download-form alert alert-success" action="/downloadXLS" method="post"
+                  th:object="${indexForm}">
+                <button id="downloadExcel" type="submit" class="btn btn-primary">Download Excel</button>
+            </form>
+
+            <h3 class="text-muted" style="float: left">
+                <img src="img/logo_24.png" style="padding-right: 11px" th:text="#{welcome}"/>
+
+            </h3>
+        </div>
+    </div>
+    <div style="height: 15px; margin-bottom: 15px ;background-color: #aaa;"></div>
+    <div class="row marketing">
+
+        <div id="messages-area" class="container">
+            <div class="alert alert-danger" role="alert" th:if="${error}" th:text="${error}"></div>
+        </div>
+
+        <section layout:fragment="content">
+
+        </section>
+    </div>
+
+    <br/><br/>
+    <hr/>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted"></span>
+        </div>
+    </footer>
+
+
+</div>
+
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/webjars/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<script src="/webjars/chartjs/2.4.0/Chart.min.js"></script>
+
+</body>
+</html>
